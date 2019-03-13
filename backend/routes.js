@@ -1,11 +1,11 @@
-const controllers = require('./controllers')
+const controllers = require('./controllers');
 
-module.exports = function(app){
+module.exports = app => {
 
     app
-        .get('/', controllers.getAllTasks)
-        .get('/api/task/:id', controllers.getTaskById)
-        .post('/api/task', controllers.addTask)
-        .put('/api/task/:id', controllers.updateTask)
-        .delete('/api/task/:id', controllers.deleteTask)
+        .get('/api/tasks', controllers.getAllTasks)
+        .get('/api/tasks/:id', controllers.getTaskById)
+        .post('/api/tasks', controllers.addTask)
+        .put('/api/tasks/:id', controllers.updateTask)
+        .delete('/api/tasks/:id', controllers.deleteTask)
 }

@@ -1,14 +1,9 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
-const bodyparser = require('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-app.use(bodyparser.json())
+app.use(bodyParser.json());
+require('./backend/routes')(app);
 
-// require('./backend/db-connection')(mongoose)
-
-require('./backend/routes')(app)
-
-const server = app.listen(3000, (err)=>{
-    console.log("Server run on", server.address().port)
-})
+const server = app.listen(3000, () => { 
+  console.log("Server is running on", server.address().port) });
