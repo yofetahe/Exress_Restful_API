@@ -1,33 +1,38 @@
-const model = require('./models')
+const { Task } = require('./models');
 
 module.exports = {
 
-    getAllTasks: (req, res) => {
-        model.tasks.find()
-        .then((data)=> res.json(data))        
-    },
+  getAllTasks: (req, res) => {
+    Task.find()
+      .then(data => console.log(data) || res.json(data))
+      .catch(err => console.log(err) || res.json(err));
+  },
 
-    getTaskById: (req, res) => {
-        model.tasks.find({_id: req.params.id})
-        .then((data) => res.json(data))
-        .catch((err) => console.log(err))
-    },
+  getTaskById: (req, res) => {
+    const ID = req.params.id;
+    Task.find({ _id: ID })
+      .then(data => res.json(data))
+      .catch(err => res.json(err));
+  },
 
-    addTask: (req, res) => {
-        model.tasks.create(req.body)
-        .then((data) => res.json(data))
-        .catch((err) => console.log(err))
-    },
+  addTask: (req, res) => {
+    const DATA = req.body;
+    Task.create(DATA)
+      .then(data => res.json(data))
+      .catch(err => res.json(err));
+  },
 
-    updateTask: (req, res) => {
-        model.tasks.update({_id: req.params.id})
-        .then(data => res.json(data))
-        .catch(err => console.log(err))
-    },
+  updateTask: (req, res) => {
+    const ID = req.params.id;
+    Task.findOneAndUpdate({ _id: ID })
+      .then(data => res.json(data))
+      .catch(err => res.json(err));
+  },
 
-    deleteTask: (req, res) => {
-        model.tasks.findOneAndDelete({_id: req.params.id})
-        .then(data => res.json(data))
-        .catch(err => console.log(err))
-    }
+  deleteTask: (req, res) => {
+    const ID = req.params.id;
+    Task.findOneAndDelete({ _id: ID })
+      .then(data => res.json(data))
+      .catch(err => res.json(err));
+  }
 }
