@@ -5,7 +5,7 @@ const bodyparser = require('body-parser')
 
 app.use(bodyparser.json())
 
-require('./backend/db-connection')(mongoose)
+// require('./backend/db-connection')(mongoose)
 
 require('./backend/routes')(app)
 
