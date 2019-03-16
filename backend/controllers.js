@@ -24,7 +24,8 @@ module.exports = {
 
   updateTask: (req, res) => {
     const ID = req.params.id;
-    Task.findOneAndUpdate({ _id: ID })
+    const DATA = req.body;
+    Task.findOneAndUpdate({ _id: ID }, DATA)
       .then(data => res.json(data))
       .catch(err => res.json(err));
   },
