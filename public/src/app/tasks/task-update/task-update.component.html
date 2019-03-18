@@ -1,0 +1,19 @@
+<div class="updateForm">
+    <form (submit)="updateTaskInfo()">
+      <mat-card>
+        <mat-form-field>
+          <label for="title">Title</label>
+          <input type="text" matInput name="title" [(ngModel)]="taskInfo.title">
+        </mat-form-field>
+        <mat-form-field>
+          <label for="desc">Description</label>
+          <textarea name="desc" rows="3" matInput
+            [(ngModel)]="taskInfo.description">          
+          </textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Update</button>
+        <input type="text" name="id" style="display: none" [(ngModel)]="taskInfo.id">
+      </mat-card>
+    </form>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="title">
+  <h1> {{ pageTitle }} </h1>
+  <button mat-raised-button color="primary" (click)="getTaskAddForm()">Add Tasks</button>
+</div>
+
+<mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let task of tasks">
+      <mat-expansion-panel-header>
+        {{ task.title }}
+      </mat-expansion-panel-header>
+      <p>{{ task.description }}</p>
+      <button (click)="getTaskDetail([task._id])" mat-raised-button color="primary">SHOW</button>
+      <button (click)="getTaskUpdateForm([task._id])" mat-raised-button color="primary">EDIT</button>
+      <button (click)="deleteTask([task._id])" mat-raised-button color="primary">DELETE</button>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<app-tasks *ngIf="addForm"></app-tasks>
+
+<app-task-update [taskInfo]="updateTaskData" *ngIf="updateForm"></app-task-update>
+
+<app-task-detail [taskInfo]="updateTaskData" *ngIf="detailForm"></app-task-detail> 

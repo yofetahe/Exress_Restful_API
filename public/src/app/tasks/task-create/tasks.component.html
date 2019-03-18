@@ -1,0 +1,64 @@
+
+<div class="container">
+
+  
+
+  <div class="addForm">
+    <!-- {{ newTask.title | json }}
+    {{ newTask.description | json }} -->
+    <form (submit)="addTask()">
+      <mat-card>
+        <mat-form-field>            
+            <input matInput type="text" placeholder="Title" 
+            [(ngModel)]="newTask.title" name="title">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea matInput rows="3" placeholder="Description" 
+            [(ngModel)]="newTask.description" name="description">          
+            </textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Submit</button>
+      </mat-card>
+    </form>
+  </div>
+
+  <!-- <h4 *ngIf="tasks.length > 0">{{ title }}</h4> -->
+  
+  <!-- tasks list -->
+  <!-- <mat-accordion>
+    <mat-expansion-panel *ngFor="let task of tasks">
+      <mat-expansion-panel-header>
+        {{ task.title }}
+      </mat-expansion-panel-header>
+      <p>{{ task.description }}</p>
+      <button (click)="getTaskDetail([task._id])" class="btn btn-light">SHOW</button>
+      <button (click)="getTaskUpdateForm([task._id])" class="btn btn-light">EDIT</button>
+      <button (click)="deleteTask([task._id])" class="btn btn-light">DELETE</button>
+    </mat-expansion-panel>
+  </mat-accordion> -->
+  
+  <!-- Detail -->
+  <!-- <div *ngIf="task.length > 0">
+    <h4>{{ taskTitle }}</h4>
+    <p>{{ task[0].title }}</p>
+    <p>{{ task[0].description }}</p>
+  </div> -->
+
+  <!-- Update -->
+  <!-- <div *ngIf="updateTaskData.length > 0">
+    <form (submit)="updateTaskInfo()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" 
+          [(ngModel)]="updateTask.title">
+      </div>
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <textarea name="desc" id="" cols="30" rows="3" class="form-control" 
+          [(ngModel)]="updateTask.description">          
+        </textarea>
+      </div>
+      <button class="btn btn-success">Update</button>
+    </form>
+  </div> -->  
+</div>

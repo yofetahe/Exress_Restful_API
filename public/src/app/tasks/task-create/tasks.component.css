@@ -1,0 +1,15 @@
+.body{
+    text-align: center;
+}
+/* mat-card{
+    margin: auto;
+} */
+
+mat-form-field,
+input, textarea {
+    width: 100%;
+}
+
+.addForm{
+    margin-top: 16px;
+}

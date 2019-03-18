@@ -1,0 +1,15 @@
+div.title{
+    padding: 0px;
+}
+
+div.title h1, button {
+    display: inline-block;
+}
+
+div.title button{
+    float: right;
+}
+
+button{
+    margin-right: 10px;
+}
